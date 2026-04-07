@@ -28,9 +28,12 @@ jobs:
 
       - name: Prepare site
         run: |
+          set -eux
           mkdir -p dist
           cp sm.html dist/index.html
           touch dist/.nojekyll
+          ls -lah dist
+          test -f dist/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
